@@ -41,13 +41,17 @@ namespace SnakeAndLadder
             {
                 int numOnDie = rollDie();
                 int stepsMove = newPos(numOnDie);
-                nextPos = currentPos + stepsMove;
+                if (currentPos + stepsMove > END_POS)
+                    nextPos = currentPos;
+                else
+                    nextPos = currentPos + stepsMove;
+
                 if (nextPos < START_POS)
                     currentPos = START_POS;
                 else
                     currentPos = nextPos;
             }
-            Console.WriteLine("Final Position is " + currentPos);
+        Console.WriteLine("Final Position is " + currentPos);
         }
     }
     }
