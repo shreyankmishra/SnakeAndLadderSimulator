@@ -37,9 +37,11 @@ namespace SnakeAndLadder
         static void Main(string[] args)
         {
             int currentPos = START_POS, nextPos;
+            int throwNumber = 0;
             while (currentPos < END_POS)
             {
                 int numOnDie = rollDie();
+                throwNumber++;
                 int stepsMove = newPos(numOnDie);
                 if (currentPos + stepsMove > END_POS)
                     nextPos = currentPos;
@@ -50,8 +52,9 @@ namespace SnakeAndLadder
                     currentPos = START_POS;
                 else
                     currentPos = nextPos;
+                Console.WriteLine("Position after die roll " +  throwNumber + " is " + currentPos);
             }
-        Console.WriteLine("Final Position is " + currentPos);
+            Console.WriteLine("Final Position is " + currentPos +  " and number of times die thrown is " + throwNumber);
         }
     }
     }
