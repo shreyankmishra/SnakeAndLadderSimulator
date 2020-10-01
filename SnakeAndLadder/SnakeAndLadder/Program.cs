@@ -36,9 +36,18 @@ namespace SnakeAndLadder
         }
         static void Main(string[] args)
         {
-            int currentPos = START_POS;
-            int numberDie = rollDie();
-            int stepChange = newPos(numberDie);
+            int currentPos = START_POS, nextPos;
+            while (currentPos < END_POS)
+            {
+                int numOnDie = rollDie();
+                int stepsMove = newPos(numOnDie);
+                nextPos = currentPos + stepsMove;
+                if (nextPos < START_POS)
+                    currentPos = START_POS;
+                else
+                    currentPos = nextPos;
+            }
+            Console.WriteLine("Final Position is " + currentPos);
         }
     }
-}
+    }
